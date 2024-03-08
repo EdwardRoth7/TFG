@@ -119,7 +119,7 @@ ramsey <- function(ctax0, he0, s0, i0, r0, pr_treat, pr_vacc, pi1, pi2, pi3, eps
   }
   
   lower_bounds = c(rep(0, 2*H))  # Límite inferior de 0 para ctax y he
-  upper_bounds = c(rep(1, H), rep(Inf, H))  # Límite superior de 1 para ctax y Inf para he
+  upper_bounds = c(rep(0, H), rep(Inf, H))  # Límite superior de 1 para ctax y Inf para he
   
   res = optim(par = c(ctax0, he0), fn = obj, gr = jac, method='L-BFGS-B', lower = lower_bounds, upper = upper_bounds, control = list("ndeps" = tol_ramsey, "reltol" = tol))
   
