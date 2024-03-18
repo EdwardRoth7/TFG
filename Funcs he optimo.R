@@ -11,9 +11,7 @@ initial_ss <- function(A, beta, theta){
     C = A * N
     u = (log(C) - theta/2 * N^2)
     U = 1/(1 - beta) * u
-    b_ss = 1100
-    taxn_ss = ((((1/beta)-1)*(theta^(1/2)))/A)*b_ss
-    gama = -0.001
+
     
     
     return(list('w'= w, 'C'= C, 'N'= N, 'ns'= N, 'ni'= N, 'nr'= N, 'U'= U, 'A'= A, 'beta'= beta, 'theta'= theta, 'Neff'= N, 'b_ss' = b_ss, 'taxn_ss' = taxn_ss ))
@@ -68,10 +66,6 @@ td_eval <- function(ns, ni, nr, ctax, he, U_ss, c_ss, n_ss, pr_treat, pr_vacc, p
   with(as.list(c(ns, ni, nr, ctax, he, U_ss, c_ss, n_ss, pr_treat, pr_vacc, pi1, pi2, pi3, H, eps, pidbar, pir, phi, theta, A, beta, kappa)),{
     
 
-    b_ss = 1100
-    taxn_ss = ((((1/beta)-1)*(theta^(1/2)))/A)*b_ss
-    gama = -0.001
-    
     S = integer(H)
     I = integer(H)
     R = integer(H)
