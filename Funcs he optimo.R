@@ -89,7 +89,7 @@ td_eval <- function(ns, ni, nr, ctax, he, U_ss, c_ss, n_ss, pr_treat, pr_vacc, p
     #pic[1] = pi1 - (1.5*10^(-9)) * he[1]
     #pin[1] = pi2 - (7.5*10^(-7)) * he[1]
     pic[1] = pi1 * (1.0045 + (0.1 - 0.9)/(1 + 0.5 * exp(- 4 * (he[1]/20 - 0.8)))^2)
-    pin[1] = pi2 * (1.0045 + (0.1 - 0.9)/(1 + 0.5 * exp(- 4 * (he[1]/20 - 0.8)))^2)
+    pin[1] = pi2 * (1.0045 + (0.1 - 0.9)/(1 + 0.5 * exp(- 4 * (he[1]/50 - 0.8)))^2)
     b[1] = b_ss + (he[1] + ((1/beta) - 1) * b_ss - taxn_ss * A * (S[1] * ns[1] + I[1] * ni[1] * phi + R[1] * nr[1]))/(1 + gama * A * (S[1] * ns[1] + I[1] * ni[1] * phi + R[1] * nr[1]))
     taxn[1] = taxn_ss + gama * (b[1] - b_ss)
     #dp[1] = he[1] + ((1/beta) - 1 ) * b_ss - taxn[1] * A * (S[1] * ns[1] + I[1] * ni[1] * phi + R[1] * nr[1])
@@ -114,7 +114,7 @@ td_eval <- function(ns, ni, nr, ctax, he, U_ss, c_ss, n_ss, pr_treat, pr_vacc, p
       #pic[t] = pi1 - (1.5*10^(-9)) * he[t]
       #pin[t] = pi2 - (7*10^(-7)) * he[t]
       pic[t] = pi1 * (1.0045 + (0.1 - 0.9)/(1 + 0.5 * exp(- 4 * (he[t]/20 - 0.8)))^2)
-      pin[t] = pi2 * (1.0045 + (0.1 - 0.9)/(1 + 0.5 * exp(- 4 * (he[t]/20 - 0.8)))^2)
+      pin[t] = pi2 * (1.0045 + (0.1 - 0.9)/(1 + 0.5 * exp(- 4 * (he[t]/50 - 0.8)))^2)
       b[t] = (he[t] + (1/beta) * b[t-1] + (gama * b_ss - taxn_ss) * A * (S[t] * ns[t] + I[t] * ni[t] * phi + R[t] * nr[t]))/(1 + gama * A * (S[t] * ns[t] + I[t] * ni[t] * phi + R[t] * nr[t]))
       taxn[t] = taxn_ss + gama * (b[t] - b_ss)
       #dp[t] = he[t] + ((1/beta) - 1 ) * b[t-1] - taxn[t] * A * (S[t] * ns[t] + I[t] * ni[t] * phi + R[t] * nr[t]) 
